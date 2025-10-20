@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+    themes: light --default;
+}
+
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+
+    --color-primary: #0077B6;
+    /* Ocean Blue */
+    --color-secondary: #F4A261;
+    /* Warm Sand */
+
+    --bg-base-100: #FFFFFF;
+    /* Pure white background */
+    --bg-base-200: #F4F4F4;
+    /* Light gray sections */
+    --bg-base-300: #EAEAEA;
+    /* Border / subtle bg */
+
+    --color-neutral: #222222;
+    /* Text color */
+    --color-accent: var(--color-secondary);
+    --color-info: var(--color-primary);
+    --color-success: var(--color-primary);
+    --color-warning: var(--color-secondary);
+    --color-error: var(--color-primary);
+}
+
+@plugin "daisyui/theme" {
+    name: "dark";
+
+    --color-primary: #00B4D8;
+    /* Brighter sky blue for dark bg */
+    --color-secondary: #E9C46A;
+    /* Warm sand yellow */
+
+    --bg-base-100: #0F172A;
+    /* Main dark background */
+    --bg-base-200: #1E293B;
+    /* Card background */
+    --bg-base-300: #334155;
+    /* Section separators */
+
+    --color-neutral: #F1F5F9;
+    /* Light text */
+    --color-accent: var(--color-secondary);
+    --color-info: var(--color-primary);
+    --color-success: var(--color-primary);
+    --color-warning: var(--color-secondary);
+    --color-error: var(--color-primary);
+}
