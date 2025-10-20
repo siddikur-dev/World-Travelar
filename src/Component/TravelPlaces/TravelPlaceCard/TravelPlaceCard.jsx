@@ -6,10 +6,7 @@ const TravelPlaceCard = ({ place }) => {
   const description = place.desc.split(" ");
   const short_desc = description.slice(0, 16).join(" ");
   return (
-    <div
-      
-      className="card bg-base-100 shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105"
-    >
+    <div className="card bg-base-100 shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
       <img
         src={place.img}
         alt={place.name}
@@ -21,7 +18,10 @@ const TravelPlaceCard = ({ place }) => {
         </h3>
         <p className="text-base-content mb-3">
           {short_desc}...{" "}
-          <Link to={`/places/${place.id}`} className="text-secondary underline cursor-pointer">
+          <Link
+            to={`/places/${place.id}`}
+            className="text-secondary underline cursor-pointer"
+          >
             Read More
           </Link>
         </p>
@@ -31,7 +31,6 @@ const TravelPlaceCard = ({ place }) => {
             {place.tour_day} days
           </span>
         </div>
-       
       </div>
     </div>
   );
