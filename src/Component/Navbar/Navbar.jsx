@@ -11,31 +11,24 @@ const Navbar = () => {
           <span className="text-primary">World</span>
           <span className="text-secondary">Travel</span>
         </NavLink>
-        <div className="hidden lg:flex gap-3 items-center">
+        <div className="hidden lg:flex gap-5 items-center">
           <NavLink
             to="/"
-            className="btn btn-ghost text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
+            className="  text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
           >
             Home
           </NavLink>
 
           <NavLink
             to="/about"
-            className="btn btn-ghost text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
+            className="  text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
           >
             About
           </NavLink>
 
           <NavLink
-            to="/places"
-            className="btn btn-ghost text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
-          >
-            Travel Places
-          </NavLink>
-
-          <NavLink
             to="/packages"
-            className="btn btn-ghost text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
+            className="  text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
           >
             Packages
           </NavLink>
@@ -51,7 +44,11 @@ const Navbar = () => {
 
         {/* Mobile Dropdown Menu */}
         <div className="dropdown dropdown-end lg:hidden">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+          <div
+            tabIndex={0}
+            role="button"
+            className="  btn btn-ghost"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 text-base-content"
@@ -83,14 +80,6 @@ const Navbar = () => {
                 className="text-base-content hover:text-primary"
               >
                 About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/places"
-                className="text-base-content hover:text-primary"
-              >
-                Travel Places
               </NavLink>
             </li>
             <li>

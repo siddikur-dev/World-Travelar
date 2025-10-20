@@ -4,6 +4,7 @@ import Root from "../../Layout/Root/Root";
 import Home from "../../Pages/Home/Home";
 import TravelPlaces from "../../Component/TravelPlaces/TravelPlaces";
 import PlaceCardDetails from "../../Component/TravelPlaces/PlaceCardDetails/PlaceCardDetails";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/places/:id",
         Component: PlaceCardDetails,
+      },
+      {
+        path: "*",
+        Component: ErrorPage,
       },
     ],
   },
