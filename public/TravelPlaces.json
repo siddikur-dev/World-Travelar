@@ -21,7 +21,7 @@
     "id": 3,
     "name": "Marrakech, Morocco",
     "desc": "Marrakech, a vibrant imperial city, captivates with its sensory overload. Get lost in the labyrinthine alleys of the ancient **Medina**, haggle for goods in the **colorful markets (souks)**, and experience the lively atmosphere of the **Jemaa el-Fnaa square**. Stay in a traditional **Moroccan riad** for an authentic experience.",
-    "img": "https://images.unsplash.com/photo-1505765057350-15f1d6b5b9c7?w=600&q=80&auto=format&fit=crop",
+    "img": "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSUU3MOPx3NXS6B9E9Iye5fUZZ-3YnjxeIlHuOaqfL1csDZZryqi4a_yYQGzF1dkVLPxhUZPWF9lr2l8moPeqkTw6ebau-sHNWuB3dAiWc",
     "price": 749,
     "tour_day": 4,
     "rating": 4.7
@@ -30,7 +30,7 @@
     "id": 4,
     "name": "Bali, Indonesia",
     "desc": "Known as the Island of the Gods, Bali is a quintessential **tropical paradise**. It features stunning white-sand and black-sand **beaches**, centuries-old Hindu **temples** like Tanah Lot, and the iconic lush rice paddies of Ubud. It's a perfect destination for relaxation, surfing, and cultural exploration.",
-    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop",
+    "img": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRFLYiR2N3v7WEnyBKRmRbk6Y3-D5uL8s8iGLTVYdb_dyQKpYL0VsWlkMmm5cAVZhlVfWKoJvWwKN0fj8UOLdZ3cm8m_gRXDTuCIhn7bg",
     "price": 999,
     "tour_day": 6,
     "rating": 4.8
@@ -39,7 +39,7 @@
     "id": 5,
     "name": "Paris, France",
     "desc": "Paris, the iconic **'City of Love'**, offers an unparalleled blend of art, history, and romance. See the magnificent **Eiffel Tower**, explore the world-class collections at the **Louvre Museum**, and indulge in exquisite **French cuisine and patisseries**. Stroll along the Seine and visit the Notre-Dame Cathedral.",
-    "img": "https://images.unsplash.com/photo-1543340713-87f05513349d?w=600&q=80&auto=format&fit=crop",
+    "img": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSnTfT6kPrKGW579p2IRFBi_tohkDHzLqYzdP91dvFqIYtEbUT90xOl_-B0B7boIwbF-ja4oxISPf84WXvjLV90o5nHGBf1dLZ3zXh2xpQ",
     "price": 1299,
     "tour_day": 5,
     "rating": 4.9
@@ -66,7 +66,7 @@
     "id": 8,
     "name": "Cape Town, South Africa",
     "desc": "Nestled beneath the majestic **Table Mountain**, Cape Town is a city of stunning natural beauty and rich history. Explore the V&A Waterfront, relax on beautiful **beaches** like Camps Bay, and delve into the vibrant local and historical culture, including a trip to Robben Island.",
-    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop",
+    "img": "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQH86d-tmW8L74CkmsbgSO01pL0SCX3ZmityqY1dgn2PcHpgxVWBfFD_9p8iFJSInQ_BVLVXWP4XHi2UyjPXam0C2WeeYQ9dNycDdkIsQ",
     "price": 999,
     "tour_day": 5,
     "rating": 4.6
@@ -93,7 +93,7 @@
     "id": 11,
     "name": "Bangkok, Thailand",
     "desc": "Bangkok is a vibrant and energetic city renowned for its street life and elaborate religious sites. Discover glittering **Buddhist temples** like Wat Arun and Wat Pho, navigate the colorful atmosphere of the **floating markets**, and enjoy the city's legendary street food and lively nightlife.",
-    "img": "https://images.unsplash.com/photo-1502920917128-1aa500764b21?w=600&q=80&auto=format&fit=crop",
+    "img": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSKaDk2RA6lkHbBTmr257vu1ferzvBQEdTc-ZEfxd_Z6IJLV1lUlPEfhB3JOrmi8CJoHTyk6rJ3AcYxIt19LnfqX4OQ8ESvgYcK9qi6_g",
     "price": 749,
     "tour_day": 4,
     "rating": 4.6

@@ -31,11 +31,7 @@ const TravelPlaceCard = ({ place }) => {
             {place.tour_day} days
           </span>
         </div>
-        <div className="flex items-center">
-          <span className="text-yellow-400 font-semibold">
-            {place.rating} ⭐
-          </span>
-        </div>
+       
       </div>
     </div>
   );
