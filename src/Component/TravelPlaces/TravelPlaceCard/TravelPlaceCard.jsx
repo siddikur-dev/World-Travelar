@@ -1,6 +1,9 @@
 import React from "react";
 
 const TravelPlaceCard = ({ place }) => {
+  // long desc to short description convert
+  const description = place.desc.split(" ");
+  const short_desc = description.slice(0, 16).join(" ");
   return (
     <div
       key={place.id}
@@ -15,7 +18,12 @@ const TravelPlaceCard = ({ place }) => {
         <h3 className="text-xl font-semibold text-primary mb-2">
           {place.name}
         </h3>
-        <p className="text-base-content mb-3">{place.desc}</p>
+        <p className="text-base-content mb-3">
+          {short_desc}...{" "}
+          <span className="text-secondary underline cursor-pointer">
+            Read More
+          </span>
+        </p>
         <div className="flex justify-between items-center mb-2">
           <span className="font-semibold text-secondary">${place.price}</span>
           <span className="text-sm text-base-content/70">
