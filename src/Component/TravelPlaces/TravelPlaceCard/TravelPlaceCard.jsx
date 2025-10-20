@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const TravelPlaceCard = ({ place }) => {
   // long desc to short description convert
@@ -6,7 +7,7 @@ const TravelPlaceCard = ({ place }) => {
   const short_desc = description.slice(0, 16).join(" ");
   return (
     <div
-      key={place.id}
+      
       className="card bg-base-100 shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105"
     >
       <img
@@ -20,9 +21,9 @@ const TravelPlaceCard = ({ place }) => {
         </h3>
         <p className="text-base-content mb-3">
           {short_desc}...{" "}
-          <span className="text-secondary underline cursor-pointer">
+          <Link to={`/places/${place.id}`} className="text-secondary underline cursor-pointer">
             Read More
-          </span>
+          </Link>
         </p>
         <div className="flex justify-between items-center mb-2">
           <span className="font-semibold text-secondary">${place.price}</span>
