@@ -9,7 +9,7 @@ const Navbar = () => {
         {/* Brand / Logo */}
         <NavLink className="text-2xl font-bold tracking-wide">
           <span className="text-primary">World</span>
-          <span className="text-secondary">Travellar</span>
+          <span className="text-secondary">Travel</span>
         </NavLink>
         <div className="hidden lg:flex gap-3 items-center">
           <NavLink

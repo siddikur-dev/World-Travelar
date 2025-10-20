@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Santorini, Greece",
+    "desc": "Santorini, a volcanic island in the Aegean Sea, is famous for its stunning sunsets, **whitewashed villages of Oia and Fira**, and dramatic cliffside views. The iconic **blue-domed churches** perched high above the caldera are a world-renowned sight. Visitors can enjoy fine dining, wine tasting, and exploring black-sand beaches.",
+    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop",
+    "price": 899,
+    "tour_day": 5,
+    "rating": 4.9
+  },
+  {
+    "id": 2,
+    "name": "Kyoto, Japan",
+    "desc": "Kyoto is the cultural heart of Japan, offering a deep dive into tradition. Explore over a thousand **ancient temples and serene Zen gardens**, walk through the breathtaking **Arashiyama Bamboo Grove**, and witness geisha in the historic Gion district. It’s a place where history and modernity coexist beautifully.",
+    "img": "https://images.unsplash.com/photo-1549693578-d683be217e58?w=600&q=80&auto=format&fit=crop",
+    "price": 1199,
+    "tour_day": 7,
+    "rating": 4.8
+  },
+  {
+    "id": 3,
+    "name": "Marrakech, Morocco",
+    "desc": "Marrakech, a vibrant imperial city, captivates with its sensory overload. Get lost in the labyrinthine alleys of the ancient **Medina**, haggle for goods in the **colorful markets (souks)**, and experience the lively atmosphere of the **Jemaa el-Fnaa square**. Stay in a traditional **Moroccan riad** for an authentic experience.",
+    "img": "https://images.unsplash.com/photo-1505765057350-15f1d6b5b9c7?w=600&q=80&auto=format&fit=crop",
+    "price": 749,
+    "tour_day": 4,
+    "rating": 4.7
+  },
+  {
+    "id": 4,
+    "name": "Bali, Indonesia",
+    "desc": "Known as the Island of the Gods, Bali is a quintessential **tropical paradise**. It features stunning white-sand and black-sand **beaches**, centuries-old Hindu **temples** like Tanah Lot, and the iconic lush rice paddies of Ubud. It's a perfect destination for relaxation, surfing, and cultural exploration.",
+    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop",
+    "price": 999,
+    "tour_day": 6,
+    "rating": 4.8
+  },
+  {
+    "id": 5,
+    "name": "Paris, France",
+    "desc": "Paris, the iconic **'City of Love'**, offers an unparalleled blend of art, history, and romance. See the magnificent **Eiffel Tower**, explore the world-class collections at the **Louvre Museum**, and indulge in exquisite **French cuisine and patisseries**. Stroll along the Seine and visit the Notre-Dame Cathedral.",
+    "img": "https://images.unsplash.com/photo-1543340713-87f05513349d?w=600&q=80&auto=format&fit=crop",
+    "price": 1299,
+    "tour_day": 5,
+    "rating": 4.9
+  },
+  {
+    "id": 6,
+    "name": "Sydney, Australia",
+    "desc": "Sydney is a vibrant harbor city famous for its instantly recognizable structures. Key sights include the sails of the **Sydney Opera House**, the massive **Sydney Harbour Bridge**, and sun-drenched **beaches** like Bondi. The city offers excellent nightlife, shopping, and natural beauty around its expansive harbor.",
+    "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600&q=80&auto=format&fit=crop",
+    "price": 1399,
+    "tour_day": 7,
+    "rating": 4.7
+  },
+  {
+    "id": 7,
+    "name": "Rome, Italy",
+    "desc": "The Eternal City, Rome, is a historical treasure trove where **ancient architecture** stands alongside modern life. Explore monumental sites like the **Colosseum**, the Roman Forum, and the Pantheon. Don't forget to visit Vatican City, toss a coin in the Trevi Fountain, and savor authentic **Italian pasta and gelato**.",
+    "img": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600&q=80&auto=format&fit=crop",
+    "price": 1099,
+    "tour_day": 6,
+    "rating": 4.8
+  },
+  {
+    "id": 8,
+    "name": "Cape Town, South Africa",
+    "desc": "Nestled beneath the majestic **Table Mountain**, Cape Town is a city of stunning natural beauty and rich history. Explore the V&A Waterfront, relax on beautiful **beaches** like Camps Bay, and delve into the vibrant local and historical culture, including a trip to Robben Island.",
+    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop",
+    "price": 999,
+    "tour_day": 5,
+    "rating": 4.6
+  },
+  {
+    "id": 9,
+    "name": "New York, USA",
+    "desc": "**'The City That Never Sleeps'** is a global epicenter of finance, culture, and entertainment. Witness the towering **skyscrapers** of Manhattan, catch a world-class show on **Broadway**, stroll through Central Park, and explore iconic neighborhoods from Times Square to Greenwich Village.",
+    "img": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80&auto=format&fit=crop",
+    "price": 1199,
+    "tour_day": 4,
+    "rating": 4.8
+  },
+  {
+    "id": 10,
+    "name": "Istanbul, Turkey",
+    "desc": "Spanning two continents, Istanbul offers a unique blend of East and West. Explore the grand **Hagia Sophia** and the Blue Mosque, wander through the bustling **Grand Bazaar**, and enjoy a cruise on the **Bosphorus** strait. The city is steeped in history as the former capital of the Byzantine and Ottoman Empires.",
+    "img": "https://images.unsplash.com/photo-1516117172878-fd2c41f4a759?w=600&q=80&auto=format&fit=crop",
+    "price": 899,
+    "tour_day": 5,
+    "rating": 4.7
+  },
+  {
+    "id": 11,
+    "name": "Bangkok, Thailand",
+    "desc": "Bangkok is a vibrant and energetic city renowned for its street life and elaborate religious sites. Discover glittering **Buddhist temples** like Wat Arun and Wat Pho, navigate the colorful atmosphere of the **floating markets**, and enjoy the city's legendary street food and lively nightlife.",
+    "img": "https://images.unsplash.com/photo-1502920917128-1aa500764b21?w=600&q=80&auto=format&fit=crop",
+    "price": 749,
+    "tour_day": 4,
+    "rating": 4.6
+  },
+  {
+    "id": 12,
+    "name": "Reykjavik, Iceland",
+    "desc": "The capital of Iceland and the gateway to its natural wonders, Reykjavik is a cool and creative city. The main attractions are the natural phenomena surrounding it, including hunting for the dazzling **Northern Lights** (Aurora Borealis), visiting immense **glaciers**, and soaking in the famous **geothermal hot springs** like the Blue Lagoon.",
+    "img": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80&auto=format&fit=crop",
+    "price": 1499,
+    "tour_day": 6,
+    "rating": 4.9
+  }
+]
