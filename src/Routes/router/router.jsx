@@ -9,6 +9,7 @@ import Register from "../../Component/AuthRegLogin/Register/Register";
 import Login from "../../Component/AuthRegLogin/Login/Login";
 import Profile from "../../Pages/Profile/Profile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import BookPlace from "../../Component/BookPlace/BookPlace";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         Component: Login,
+      },
+      {
+        path: "/book-place",
+        Component: BookPlace,
       },
       {
         path: "*",

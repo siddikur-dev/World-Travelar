@@ -56,10 +56,10 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink
-            to="/packages"
+            to="/book-place"
             className="text-base font-medium text-base-content hover:text-secondary hover:bg-base-200"
           >
-            Packages
+            Book Places
           </NavLink>
 
           {user && (
@@ -117,7 +117,10 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <NavLink to="/" className="text-base-content hover:text-secondary hover:bg-base-200">
+              <NavLink
+                to="/"
+                className="text-base-content hover:text-secondary hover:bg-base-200"
+              >
                 Home
               </NavLink>
             </li>

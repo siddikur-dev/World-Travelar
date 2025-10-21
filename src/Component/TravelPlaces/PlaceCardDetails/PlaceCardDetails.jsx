@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import useApps from "../../../hook/useTravelPlace";
+import useTravelPlace from "../../../hook/useTravelPlace";
+import { addToBookPlaceLS, getStoredBookPlace } from "../../../Utility/AddToLs";
 
 const PlaceCardDetails = () => {
+  // Book Place button state handler
+  const [bookPlace, setBookPlace] = useState(false);
+  const { places, loading } = useTravelPlace();
+
   const { id } = useParams();
   const idNb = parseInt(id);
-  //   hook use
-  const { places, loading } = useApps();
+
+  // Page load  check from localStorage
+  useEffect(() => {
+    const bookPlace = getStoredBookPlace();
+    setBookPlace(bookPlace.includes(idNb));
+  }, [idNb]);
+  const handleBookPlace = (id) => {
+    const bookPlaces = getStoredBookPlace(); // always fetch latest
+    if (!bookPlaces.includes(id)) {
+      addToBookPlaceLS(id); // add and show success toast
+      setBookPlace(true);
+    }
+  };
+  //   hook useApps
   if (loading) {
-    <h3>Loading...</h3>;
-    return;
+    return <h3>Loading...</h3>;
   }
+
   const destination = places.find((placeId) => placeId.id === idNb);
-  console.log(destination);
   return (
     <section className="bg-base-100 py-16 px-4">
       <div className="container mx-auto flex flex-col lg:flex-row gap-8">
@@ -46,8 +62,13 @@ const PlaceCardDetails = () => {
             </div>
           </div>
 
-          <button className="btn btn-primary w-full text-white hover:bg-secondary hover:text-neutral transition-all duration-300">
-            Book Now
+          <button
+            onClick={() => handleBookPlace(idNb)}
+            className={`btn btn-primary w-full text-white hover:bg-secondary hover:text-neutral transition-all duration-300 ${
+              bookPlace ? "cursor-not-allowed " : "cursor-pointer"
+            }`}
+          >
+            {bookPlace ? "Book Placed" : "Book Place"}
           </button>
         </div>
       </div>

@@ -1,20 +1,20 @@
 import { Slide, Zoom, toast } from "react-toastify";
 
 //  Get Installed Apps From LocalStorage
-const getStoredBookApps = () => {
-  const installedApps = localStorage.getItem("Installed Apps");
-  if (installedApps) {
-    return JSON.parse(installedApps);
+const getStoredBookPlace = () => {
+  const bookPlace = localStorage.getItem("Book Place");
+  if (bookPlace) {
+    return JSON.parse(bookPlace);
   }
   return [];
 };
 
 //  LocalStorage Set Installed Apps
-const addToBookLS = (id) => {
-  const installedApps = getStoredBookApps();
+const addToBookPlaceLS = (id) => {
+  const bookPlaces = getStoredBookPlace();
 
-  if (installedApps.includes(id)) {
-    toast.warn("This App already  in Installed!", {
+  if (bookPlaces.includes(id)) {
+    toast.warn("This book place already in Installed!", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -22,10 +22,10 @@ const addToBookLS = (id) => {
       transition: Slide,
     });
   } else {
-    installedApps.push(id);
-    localStorage.setItem("Installed Apps", JSON.stringify(installedApps));
+    bookPlaces.push(id);
+    localStorage.setItem("Book Place", JSON.stringify(bookPlaces));
 
-    toast.success("Installed Apps successfully!", {
+    toast.success("Book Place successfully!", {
       position: "top-right",
       autoClose: 2000,
       theme: "colored",
@@ -34,20 +34,20 @@ const addToBookLS = (id) => {
   }
 };
 //  Remove Installed LS
-const removeBookLS = (id) => {
-  const installedApps = getStoredBookApps();
-  const newInstalledApps = installedApps.filter((appId) => appId !== id);
+const removeBookPlace = (id) => {
+  const bookPlace = getStoredBookPlace();
+  const newBookPlace = bookPlace.filter((bookPlaceId) => bookPlaceId !== id);
 
-  if (installedApps.length === newInstalledApps.length) {
-    toast.info("This App is not in the list!", {
+  if (bookPlace.length === newBookPlace.length) {
+    toast.info("This book place is not in the list!", {
       position: "top-right",
       autoClose: 2000,
       theme: "dark",
       transition: Zoom,
     });
   } else {
-    localStorage.setItem("Installed Apps", JSON.stringify(newInstalledApps));
-    toast.success("App Uninstalled successfully!", {
+    localStorage.setItem("Book Place", JSON.stringify(newBookPlace));
+    toast.success("Book Place Removed successfully!", {
       position: "top-right",
       autoClose: 2000,
       theme: "light",
@@ -56,4 +56,4 @@ const removeBookLS = (id) => {
   }
 };
 
-export { getStoredBookApps, addToBookLS, removeBookLS };
+export { getStoredBookPlace, addToBookPlaceLS, removeBookPlace };

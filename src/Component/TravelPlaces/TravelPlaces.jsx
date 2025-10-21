@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import useApps from "../../hook/useTravelPlace";
+import useTravelPlace from "../../hook/useTravelPlace";
 import TravelPlaceCard from "./TravelPlaceCard/TravelPlaceCard";
 import { ClockLoader } from "react-spinners";
 
 const TravelPlaces = () => {
-  const { places, loading } = useApps();
+  const { places, loading } = useTravelPlace();
 
   const [showAll, setShowAll] = useState(false);
   // click  show all / show less
