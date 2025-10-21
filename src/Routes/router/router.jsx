@@ -8,6 +8,7 @@ import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Register from "../../Component/AuthRegLogin/Register/Register";
 import Login from "../../Component/AuthRegLogin/Login/Login";
 import Profile from "../../Pages/Profile/Profile";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,15 +25,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/places/:id",
-        Component: PlaceCardDetails,
+        element: (
+          <PrivateRoute>
+            <PlaceCardDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/profile",
-        Component: Profile,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/register",
         Component: Register,
+      },
+      {
+        path: "/private",
+        Component: PrivateRoute,
       },
       {
         path: "/login",

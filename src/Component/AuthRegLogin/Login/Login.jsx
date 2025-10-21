@@ -1,10 +1,17 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthContext/AuthContext";
+import { useLocation, useNavigate } from "react-router";
+import toast from "react-hot-toast";
+import { VscEyeClosed } from "react-icons/vsc";
+import { FaRegEye } from "react-icons/fa";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const { signInWithMailPass } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log("", location);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,7 +20,7 @@ const Login = () => {
 
     if (!email || !password) {
       // simple validation
-      alert("Please provide both email and password.");
+      toast.warn("Please provide both email and password.");
       return;
     }
 
@@ -22,7 +29,8 @@ const Login = () => {
         const loggedUser = userCredential.user;
         console.log("Login successful:", loggedUser);
         // optional: you can redirect or update UI here
-        alert("Login successful");
+        toast.success("Login successful");
+        navigate(location.state || "/");
         form.reset();
       })
       .catch((error) => {
@@ -36,13 +44,8 @@ const Login = () => {
       <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-md p-8">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-center text-primary mb-6">
-          Welcome Back!
+          Login Now!
         </h2>
-        <p className="text-center text-base-content/70 mb-8">
-          Login to{" "}
-          <span className="text-secondary font-semibold">World Traveller</span>{" "}
-          and continue your journey.
-        </p>
 
         {/* Form */}
         <form className="space-y-4" onSubmit={handleLogin}>
@@ -73,10 +76,10 @@ const Login = () => {
               />
               <button
                 type="button"
-                className="absolute right-3 top-3 text-base-content/70 hover:text-primary"
+                className="absolute right-3 top-3 text-secondary"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? "🙈" : "👁️"}
+                {showPassword ? <VscEyeClosed /> : <FaRegEye />}
               </button>
             </div>
           </div>

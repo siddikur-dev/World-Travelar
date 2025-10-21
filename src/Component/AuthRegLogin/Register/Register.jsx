@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   // get from authProvider/authContext
-  const {  loading, setUser, createUser } = useContext(AuthContext);
+  const { loading, setUser, createUser } = useContext(AuthContext);
 
   if (loading) {
     <h2>loading,,,</h2>;

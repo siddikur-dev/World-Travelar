@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { auth } from "../../Firebase/Firebase.config";
@@ -19,6 +20,12 @@ const AuthProvider = ({ children }) => {
   // Sign in with mail pass
   const signInWithMailPass = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // Sign Out
+  const signOutUser = () => {
+    setLoading(true);
+    return signOut(auth);
   };
 
   // Manage User State
@@ -40,6 +47,7 @@ const AuthProvider = ({ children }) => {
     setLoading,
     createUser,
     signInWithMailPass,
+    signOutUser,
   };
   return <AuthContext value={userInfo}>{children}</AuthContext>;
 };

@@ -1,16 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthContext/AuthContext";
-import { CgProfile } from "react-icons/cg";
-import { LuLogOut } from "react-icons/lu";
-import profile from "../../assets/profile.png";
+import { TbLogout2 } from "react-icons/tb";
 
 const Profile = () => {
-  const { user, loading } = useContext(AuthContext);
-  if (loading) {
-    <p className="text-5xl text-red-700">loading...</p>;
-    return;
-  }
-  console.log(user);
+  const { user } = useContext(AuthContext);
+
   const {
     displayName,
     email,
@@ -51,7 +45,7 @@ const Profile = () => {
           </p>
           <div className="mt-2">
             <button className="btn btn-primary text-white hover:bg-secondary hover:text-neutral gap-2">
-              <LuLogOut />
+              <TbLogout2 />
               Logout
             </button>
           </div>
