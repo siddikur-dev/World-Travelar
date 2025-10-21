@@ -14,8 +14,8 @@ const Navbar = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center">
-        <BeatLoader  color="rgba(0, 180, 216, 1)" />
+      <div className="flex justify-center my-3">
+        <BeatLoader color="rgba(0, 180, 216, 1)" />
       </div>
     );
   }
@@ -43,21 +43,21 @@ const Navbar = () => {
         <div className="hidden lg:flex gap-5 items-center">
           <NavLink
             to="/"
-            className="  text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
+            className="  text-base font-medium text-base-content hover:text-secondary hover:bg-base-200"
           >
             Home
           </NavLink>
 
           <NavLink
             to="/about"
-            className="  text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
+            className="  text-base font-medium text-base-content hover:text-secondary hover:bg-base-200"
           >
             About
           </NavLink>
 
           <NavLink
             to="/packages"
-            className="  text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
+            className="text-base font-medium text-base-content hover:text-secondary hover:bg-base-200"
           >
             Packages
           </NavLink>
@@ -65,7 +65,7 @@ const Navbar = () => {
           {user && (
             <NavLink
               to="/profile"
-              className="  text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
+              className="text-base font-medium text-base-content hover:text-secondary hover:bg-base-200"
             >
               Profile
             </NavLink>
@@ -117,14 +117,14 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <NavLink to="/" className="text-base-content hover:text-primary">
+              <NavLink to="/" className="text-base-content hover:text-secondary hover:bg-base-200">
                 Home
               </NavLink>
             </li>
             <li>
               <NavLink
                 to="/about"
-                className="text-base-content hover:text-primary"
+                className="text-base-content hover:text-secondary hover:bg-base-200"
               >
                 About
               </NavLink>
@@ -132,10 +132,20 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/packages"
-                className="text-base-content hover:text-primary"
+                className="text-base-content hover:text-secondary hover:bg-base-200"
               >
                 Packages
               </NavLink>
+            </li>
+            <li>
+              {user && (
+                <NavLink
+                  to="/profile"
+                  className="  text-base-content hover:text-secondary hover:bg-base-200"
+                >
+                  Profile
+                </NavLink>
+              )}
             </li>
             <ThemeToggle></ThemeToggle>
             <li>

@@ -52,3 +52,7 @@
     --color-warning: var(--color-secondary);
     --color-error: var(--color-primary);
 }
+
+a.active {
+    color: #00B4D8
+}
