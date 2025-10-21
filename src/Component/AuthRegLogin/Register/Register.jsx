@@ -1,9 +1,59 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc"; // Google icon
+import { AuthContext } from "../../../Provider/AuthContext/AuthContext";
+import { VscEyeClosed } from "react-icons/vsc";
+import { FaRegEye } from "react-icons/fa";
+import { sendEmailVerification, updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  // get from authProvider/authContext
+  const {  loading, setUser, createUser } = useContext(AuthContext);
 
+  if (loading) {
+    <h2>loading,,,</h2>;
+  }
+  // Create User Mail Pass
+  const createUserMailPass = (e) => {
+    e.preventDefault();
+    const displayName = e.target.displayName.value;
+    const photoURL = e.target.photoURL.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    // Create User Logic Implement
+    createUser(email, password)
+      .then((res) => {
+        // Photo and email update
+        updateProfile(res.user, { displayName, photoURL })
+          .then(() => {
+            // email verification
+            sendEmailVerification(res.user)
+              .then(() => {
+                console.log("email verification", res);
+                setUser(res.user);
+              })
+              .catch((error) => {
+                console.log("email verification error", error);
+              });
+            // Photo and email update
+
+            {
+              toast.success(
+                " User Created Successfully & Email Verification Sent!"
+              );
+            }
+          })
+          .catch((error) => {
+            toast.error(`error:${error}`);
+          });
+      })
+      .catch((error) => {
+        console.log("create user", error);
+        toast.error("This Account Already Register");
+      });
+  };
   return (
     <section className="min-h-screen flex items-center justify-center bg-base-200 py-12 px-4">
       <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-md p-8">
@@ -11,10 +61,9 @@ const Register = () => {
         <h2 className="text-3xl font-bold text-center text-primary mb-6">
           Create an Account
         </h2>
-      
 
         {/* Form */}
-        <form className="space-y-4">
+        <form onSubmit={createUserMailPass} className="space-y-4">
           {/* Name field */}
           <div>
             <label className="block text-base-content font-medium mb-2">
@@ -22,6 +71,7 @@ const Register = () => {
             </label>
             <input
               type="text"
+              name="displayName"
               placeholder="Enter your full name"
               className="input input-bordered w-full focus:border-primary focus:ring-primary"
               required
@@ -34,6 +84,7 @@ const Register = () => {
               Photo URL
             </label>
             <input
+              name="photoURL"
               type="text"
               placeholder="Enter your photo URL"
               className="input input-bordered w-full focus:border-primary focus:ring-primary"
@@ -47,6 +98,7 @@ const Register = () => {
             </label>
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
               className="input input-bordered w-full focus:border-primary focus:ring-primary"
               required
@@ -61,16 +113,17 @@ const Register = () => {
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
+                name="password"
                 placeholder="Enter your password"
                 className="input input-bordered w-full pr-10 focus:border-primary focus:ring-primary"
                 required
               />
               <button
                 type="button"
-                className="absolute right-3 top-3 text-base-content/70 hover:text-primary"
+                className="absolute right-3 top-3 text-secondary"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? "🙈" : "👁️"}
+                {showPassword ? <VscEyeClosed /> : <FaRegEye />}
               </button>
             </div>
           </div>
@@ -79,6 +132,7 @@ const Register = () => {
           <div className="flex items-center gap-2">
             <input
               type="checkbox"
+              name="terms"
               className="checkbox checkbox-primary"
               required
             />
@@ -100,6 +154,7 @@ const Register = () => {
         </form>
 
         {/* Google Sign-in */}
+
         <div className="divider text-base-content/60">OR</div>
         <button
           className="btn btn-outline w-full flex items-center justify-center gap-2 hover:border-primary hover:text-primary"

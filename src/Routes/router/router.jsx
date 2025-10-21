@@ -7,6 +7,7 @@ import PlaceCardDetails from "../../Component/TravelPlaces/PlaceCardDetails/Plac
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Register from "../../Component/AuthRegLogin/Register/Register";
 import Login from "../../Component/AuthRegLogin/Login/Login";
+import Profile from "../../Pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/places/:id",
         Component: PlaceCardDetails,
+      },
+      {
+        path: "/profile",
+        Component: Profile,
       },
       {
         path: "/register",

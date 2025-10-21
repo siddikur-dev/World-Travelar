@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import ThemeToggle from "../../ThemeToggle/ThemeToggle";
+import { AuthContext } from "../../Provider/AuthContext/AuthContext";
 
 const Navbar = () => {
+  const { user, loading } = useContext(AuthContext);
+
+  if (!loading) {
+    <p>loading...</p>;
+  }
   return (
     <div className="navbar bg-base-100 shadow-md sticky top-0 z-50 transition-all duration-300">
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -32,6 +38,15 @@ const Navbar = () => {
           >
             Packages
           </NavLink>
+
+          {user && (
+            <NavLink
+              to="/profile"
+              className="  text-base font-medium text-base-content hover:text-primary hover:bg-base-200"
+            >
+              Profile
+            </NavLink>
+          )}
         </div>
 
         {/* Desktop Menu */}

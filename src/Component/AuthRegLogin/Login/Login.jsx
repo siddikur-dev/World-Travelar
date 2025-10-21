@@ -1,7 +1,35 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthContext/AuthContext";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const { signInWithMailPass } = useContext(AuthContext);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email?.value?.trim();
+    const password = form.password?.value;
+
+    if (!email || !password) {
+      // simple validation
+      alert("Please provide both email and password.");
+      return;
+    }
+
+    signInWithMailPass(email, password)
+      .then((userCredential) => {
+        const loggedUser = userCredential.user;
+        console.log("Login successful:", loggedUser);
+        // optional: you can redirect or update UI here
+        alert("Login successful");
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Login error:", error);
+        alert(error.message || "Failed to login");
+      });
+  };
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-base-200 py-12 px-4">
@@ -17,13 +45,14 @@ const Login = () => {
         </p>
 
         {/* Form */}
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleLogin}>
           <div>
             <label className="block text-base-content font-medium mb-2">
               Email Address
             </label>
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
               className="input input-bordered w-full focus:border-primary focus:ring-primary"
               required
@@ -37,6 +66,7 @@ const Login = () => {
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
+                name="password"
                 placeholder="Enter your password"
                 className="input input-bordered w-full pr-10 focus:border-primary focus:ring-primary"
                 required
