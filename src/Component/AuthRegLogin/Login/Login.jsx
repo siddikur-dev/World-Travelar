@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthContext/AuthContext";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { VscEyeClosed } from "react-icons/vsc";
 import { FaRegEye } from "react-icons/fa";
@@ -8,10 +8,12 @@ import { FaRegEye } from "react-icons/fa";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const { signInWithMailPass } = useContext(AuthContext);
+  const { signInWithMailPass, resetPassword } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location.state);
+  const emailRef = useRef();
+
+  // Handle Login
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -39,6 +41,24 @@ const Login = () => {
       });
   };
 
+  // Reset Password
+  const forgetPass = () => {
+    const email = emailRef.current.value; // Access value of the input field
+    if (!email) {
+      toast.error("Please provide your email to reset the password.");
+      return;
+    }
+
+    resetPassword(email)
+      .then(() => {
+        toast.success("Password reset link has been sent to your email.");
+      })
+      .catch((error) => {
+        console.log("forget password", error.message);
+        toast.error("Failed to send reset link.");
+      });
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-base-200 py-12 px-4">
       <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-md p-8">
@@ -56,6 +76,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
+              ref={emailRef}
               placeholder="Enter your email"
               className="input input-bordered w-full focus:border-primary focus:ring-primary"
               required
@@ -89,9 +110,13 @@ const Login = () => {
               <input type="checkbox" className="checkbox checkbox-primary" />
               <span className="text-base-content/70">Remember me</span>
             </label>
-            <a href="#" className="text-primary hover:underline">
+            <button
+              type="button"
+              onClick={forgetPass}
+              className="text-primary  cursor-pointer underline"
+            >
               Forgot password?
-            </a>
+            </button>
           </div>
 
           <button

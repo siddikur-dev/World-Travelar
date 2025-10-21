@@ -15,7 +15,7 @@ const Navbar = () => {
   if (loading) {
     return (
       <div className="flex justify-center">
-        <BeatLoader size="30" color="rgba(0, 180, 216, 1)" />
+        <BeatLoader  color="rgba(0, 180, 216, 1)" />
       </div>
     );
   }

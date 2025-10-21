@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import useApps from "../../hook/useTravelPlace";
 import TravelPlaceCard from "./TravelPlaceCard/TravelPlaceCard";
+import { ClockLoader } from "react-spinners";
 
 const TravelPlaces = () => {
   const { places, loading } = useApps();
 
   const [showAll, setShowAll] = useState(false);
-
-  // যখন "Show All" ক্লিক করা হবে
+  // click  show all / show less
   const handleShowAll = () => {
     setShowAll(!showAll);
   };
 
   if (loading) {
-    return <h3>Loading...</h3>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <ClockLoader color="rgba(0, 180, 216, 1)" />
+      </div>
+    );
   }
 
-  // প্রথম ৬টি স্থানের জন্য ডেটা ফিল্টার করা
+  // initial showing fast 6 data
   const placesToShow = showAll ? places : places.slice(0, 6);
   return (
     <section className="py-16 bg-base-200">
@@ -32,7 +36,10 @@ const TravelPlaces = () => {
         </div>
         {/* Show All Button */}
         <div className="flex justify-center my-6">
-          <button className="mx-auto btn btn-primary hover:btn-secondary" onClick={handleShowAll}>
+          <button
+            className="mx-auto btn btn-primary hover:btn-secondary"
+            onClick={handleShowAll}
+          >
             {showAll ? "ShowLess" : "ShowAll"}
           </button>
         </div>
