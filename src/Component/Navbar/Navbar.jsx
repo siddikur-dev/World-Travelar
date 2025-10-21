@@ -5,11 +5,21 @@ import { AuthContext } from "../../Provider/AuthContext/AuthContext";
 import { CiLogout } from "react-icons/ci";
 import { TbLogout2 } from "react-icons/tb";
 import toast from "react-hot-toast";
+import { BeatLoader, ClockLoader } from "react-spinners";
 
 const Navbar = () => {
-  const { user, signOutUser } = useContext(AuthContext);
+  const { user, signOutUser, loading } = useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  if (loading) {
+    return (
+      <div className="flex justify-center">
+        <BeatLoader size="30" color="rgba(0, 180, 216, 1)" />
+      </div>
+    );
+  }
+
   // Sign Out Function
   const signOut = () => {
     signOutUser()
