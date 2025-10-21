@@ -11,7 +11,7 @@ const Login = () => {
   const { signInWithMailPass } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log("", location);
+  console.log(location.state);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -34,8 +34,8 @@ const Login = () => {
         form.reset();
       })
       .catch((error) => {
-        console.error("Login error:", error);
-        alert(error.message || "Failed to login");
+        console.log("login error", error);
+        toast.error("Wrong Mail/Password");
       });
   };
 
@@ -76,7 +76,7 @@ const Login = () => {
               />
               <button
                 type="button"
-                className="absolute right-3 top-3 text-secondary"
+                className="absolute right-3 top-3 text-secondary cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <VscEyeClosed /> : <FaRegEye />}

@@ -5,15 +5,14 @@ import { VscEyeClosed } from "react-icons/vsc";
 import { FaRegEye } from "react-icons/fa";
 import { sendEmailVerification, updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   // get from authProvider/authContext
-  const { loading, setUser, createUser } = useContext(AuthContext);
+  const { createUser, signInGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  if (loading) {
-    <h2>loading,,,</h2>;
-  }
   // Create User Mail Pass
   const createUserMailPass = (e) => {
     e.preventDefault();
@@ -31,27 +30,38 @@ const Register = () => {
             // email verification
             sendEmailVerification(res.user)
               .then(() => {
-                console.log("email verification", res);
-                setUser(res.user);
+                toast.success(
+                  "User Created Successfully & Email Verification Sent!"
+                );
+                navigate("/");
               })
               .catch((error) => {
-                console.log("email verification error", error);
+                console.log("Email verification error", error);
+                toast.error(`Error: ${error.message || error}`);
               });
-            // Photo and email update
-
-            {
-              toast.success(
-                " User Created Successfully & Email Verification Sent!"
-              );
-            }
           })
           .catch((error) => {
-            toast.error(`error:${error}`);
+            console.log("Profile update error", error);
+            toast.error(`Error: ${error.message || error}`);
           });
       })
       .catch((error) => {
-        console.log("create user", error);
-        toast.error("This Account Already Register");
+        console.log("Create user error", error);
+        toast.error("This Account Already Registered");
+      });
+  };
+
+  // Sign In Google
+  const signWithGoogle = () => {
+    signInGoogle()
+      .then((result) => {
+        console.log(result);
+        toast.success("User sign in successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error("Failed To Google Sign");
+        console.log("Sign in google", error);
       });
   };
   return (
@@ -120,7 +130,7 @@ const Register = () => {
               />
               <button
                 type="button"
-                className="absolute right-3 top-3 text-secondary"
+                className="absolute right-3 top-3 text-secondary cursor-pointer "
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <VscEyeClosed /> : <FaRegEye />}
@@ -158,7 +168,7 @@ const Register = () => {
         <div className="divider text-base-content/60">OR</div>
         <button
           className="btn btn-outline w-full flex items-center justify-center gap-2 hover:border-primary hover:text-primary"
-          onClick={() => alert("Google Sign-In Clicked")}
+          onClick={signWithGoogle}
         >
           <FcGoogle size={22} />
           <span className="font-medium">Sign in with Google</span>
