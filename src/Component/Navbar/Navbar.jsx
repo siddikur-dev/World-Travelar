@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import ThemeToggle from "../../ThemeToggle/ThemeToggle";
 import { AuthContext } from "../../Provider/AuthContext/AuthContext";
-import { CiLogout } from "react-icons/ci";
 import { TbLogout2 } from "react-icons/tb";
 import toast from "react-hot-toast";
 import { BeatLoader, ClockLoader } from "react-spinners";
@@ -56,7 +55,7 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink
-            to="/book-place"
+            to="/book-places"
             className="text-base font-medium text-base-content hover:text-secondary hover:bg-base-200"
           >
             Book Places

@@ -1,132 +1,152 @@
 import React, { useEffect, useState } from "react";
-import InstallationApps from "./InstallationApps";
-import loaderImg from "../assets/logo.png";
-import appErrorImage from "../assets/App-Error.png";
-import ImageLoader from "../Components/ImageLoader";
-import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router";
-import Button from "../Components/Button/Button";
 import useTravelPlace from "../../hook/useTravelPlace";
 import { getStoredBookPlace, removeBookPlace } from "../../Utility/AddToLs";
-const Installation = () => {
-  // Navigate to all apps
-  const navigate = useNavigate();
+import { BeatLoader } from "react-spinners";
 
+const BookPlaces = () => {
+  const navigate = useNavigate();
   const { places, loading } = useTravelPlace();
-  //state set bookPlace Data
   const [bookPlace, setBookPlace] = useState([]);
-  // get Book Place from localStorage and set to state
+  const [sort, setSort] = useState("");
+
+  // ✅ Load Booked Places from Local Storage
   useEffect(() => {
     const bookPlaces = getStoredBookPlace();
     const myBookPlace = places.filter((place) => bookPlaces.includes(place.id));
     setBookPlace(myBookPlace);
   }, [places]);
-  //sort set readList Book Data
-  const [sort, setSort] = useState("");
 
-  //sort function
+  // ✅ Sort Function (Price High-Low)
   const handleSort = (type) => {
     const sortedList = [...bookPlace];
     setSort(type);
     if (type === "High") {
-      sortedList.sort((a, b) => b.size - a.size);
+      sortedList.sort((a, b) => b.price - a.price);
     } else if (type === "Low") {
-      sortedList.sort((a, b) => a.size - b.size);
+      sortedList.sort((a, b) => a.price - b.price);
     }
     setBookPlace(sortedList);
   };
 
-  //uninstall Apps function
+  // ✅ Remove Booked Place
   const handleBookPlaceRemove = (id) => {
     removeBookPlace(id);
-    setBookPlace((prevList) => prevList.filter((app) => app.id !== id));
+    setBookPlace((prevList) => prevList.filter((item) => item.id !== id));
   };
 
-  //loading spinner
+  // ✅ Loading Spinner
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen text-5xl">
-        L{" "}
-        <ImageLoader
-          className="loading loading-spinner w-2"
-          src={loaderImg}
-          alt=""
-        />
-        ading...
+      <div className="flex justify-center items-center min-h-[60vh]">
+        <BeatLoader color="#00B4D8" />
       </div>
     );
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen py-8 px-4 sm:px-6 lg:px-12">
-      <Helmet>
-        <title>Hero Store - Installed Apps</title>
-      </Helmet>
+    <div className="bg-base-200 min-h-screen py-10 px-4">
       <div className="container mx-auto">
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-6 ">
-          <div className="mx-auto">
-            <h2
-              className="text-center text-xl md:text-2xl lg:text-4xl font-bold py-3
-            "
-            >
-              My Installation Apps
-            </h2>
-            <p className="text-gray-500 text-sm sm:text-base text-center w-full md:w-3/4 lg:w-2/3 mx-auto">
-              "Discover all your installed apps and stay updated with the latest
-              trending applications developed by us. Manage, explore, and enjoy
-              your apps effortlessly!"
-            </p>
-          </div>
+        {/* 🔹 Header Section */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
+            My Booked Places
+          </h2>
+          <p className="text-base-content/70 max-w-2xl mx-auto">
+            Explore your selected travel destinations and manage your bookings
+            easily. You can sort by price or remove any tour you don’t want to
+            keep.
+          </p>
         </div>
 
-        {/* Title */}
+        {/* 🔹 Sort Dropdown */}
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
-            {bookPlace.length} Apps Found
+          <h2 className="text-lg font-semibold text-secondary">
+            {bookPlace.length} Tour{bookPlace.length !== 1 && "s"} Found
           </h2>
 
-          {/* Sort By Dropdown */}
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn m-1">
-              Sort By: {sort ? sort : "Select"}
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-primary m-1">
+              Sort By: {sort || "Select"}
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
             >
               <li>
-                <button onClick={() => handleSort("High")}>High - Low </button>
+                <button onClick={() => handleSort("High")}>High → Low</button>
               </li>
               <li>
-                <button onClick={() => handleSort("Low")}>Low - High</button>
+                <button onClick={() => handleSort("Low")}>Low → High</button>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* App List */}
+        {/* 🔹 Booked Places List */}
         {bookPlace.length === 0 ? (
-          // Show not found if no apps match search
-          <div className="my-12 space-y-7">
+          <div className="text-center py-20">
             <img
-              className="mx-auto w-[350px]"
-              src={appErrorImage}
-              alt="appErrorImage"
+              src="https://cdn-icons-png.flaticon.com/512/4076/4076509.png"
+              alt="Not found"
+              className="w-56 mx-auto mb-6 opacity-80"
             />
-            <div className="text-center space-y-7">
-              <h1 className="font-bold text-4xl">Oops, app not found!</h1>
-              <Button onClick={() => navigate("/")}>Go Home!</Button>
-            </div>
+            <h3 className="text-2xl font-semibold mb-2 text-base-content">
+              Oops! No Booked Place Found
+            </h3>
+            <p className="text-base-content/70 mb-6">
+              You haven’t booked any travel destination yet.
+            </p>
+            <button
+              onClick={() => navigate("/")}
+              className="btn btn-primary text-white hover:bg-secondary hover:text-neutral"
+            >
+              Explore Now
+            </button>
           </div>
         ) : (
-          <div className="space-y-4">
-            {bookPlace.map((app) => (
-              <InstallationApps
-                handleBookPlaceRemove={handleBookPlaceRemove}
-                key={app.id}
-                app={app}
-              />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {bookPlace.map((place) => (
+              <div
+                key={place.id}
+                className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <figure>
+                  <img
+                    src={place.img}
+                    alt={place.name}
+                    className="h-56 w-full object-cover"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title text-primary">{place.name}</h2>
+                  <p className="text-base-content/80 line-clamp-2">
+                    {place.desc}
+                  </p>
+                  <div className="flex justify-between items-center mt-3">
+                    <span className="text-secondary font-semibold">
+                      💵 ${place.price}
+                    </span>
+                    <span className="text-sm text-base-content/70">
+                      {place.tour_day} Days
+                    </span>
+                  </div>
+                  <div className="card-actions mt-4 justify-between">
+                    <button
+                      onClick={() => navigate(`/places/${place.id}`)}
+                      className="btn btn-sm btn-primary text-white hover:bg-secondary hover:text-neutral"
+                    >
+                      View Details
+                    </button>
+                    <button
+                      onClick={() => handleBookPlaceRemove(place.id)}
+                      className="btn btn-sm btn-error text-white hover:bg-red-600"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         )}
@@ -135,4 +155,4 @@ const Installation = () => {
   );
 };
 
-export default Installation;
+export default BookPlaces;

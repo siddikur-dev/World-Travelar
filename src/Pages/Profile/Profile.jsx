@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthContext/AuthContext";
 import { TbLogout2 } from "react-icons/tb";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, signOutUser } = useContext(AuthContext);
 
   const {
     displayName,
@@ -13,7 +15,18 @@ const Profile = () => {
     // metadata,
     // lastSignInTimelastSignInTime,
   } = user;
-
+  const navigate = useNavigate();
+  // Sign Out Function
+  const signOut = () => {
+    signOutUser()
+      .then(() => {
+        toast.warn("Logout Successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <section className="min-h-screen bg-base-200 py-12 px-4 flex justify-center items-center">
       <div className="bg-base-100 shadow-xl rounded-2xl w-full max-w-3xl overflow-hidden">
@@ -44,7 +57,9 @@ const Profile = () => {
             email verification: {emailVerified ? "Verified" : "UnVerified"}
           </p>
           <div className="mt-2">
-            <button className="btn btn-primary text-white hover:bg-secondary hover:text-neutral gap-2">
+            <button 
+            onClick={signOut}
+            className="btn btn-primary text-white hover:bg-secondary hover:text-neutral gap-2">
               <TbLogout2 />
               Logout
             </button>
