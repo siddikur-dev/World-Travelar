@@ -18,7 +18,7 @@ const Navbar = () => {
       </div>
     );
   }
-
+// console.log(import.meta.env.VITE_name);
   // Sign Out Function
   const signOut = () => {
     signOutUser()
