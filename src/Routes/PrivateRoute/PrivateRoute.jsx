@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return (
       <div className=" flex justify-center my-20 ">
-        <ClockLoader size="150" color="rgba(0, 180, 216, 1)" />
+        <ClockLoader size={150} color="rgba(0, 180, 216, 1)" />
       </div>
     );
   }

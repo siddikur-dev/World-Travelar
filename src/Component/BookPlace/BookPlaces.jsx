@@ -46,9 +46,11 @@ const BookPlaces = () => {
 
   return (
     <div className="bg-base-200 min-h-screen py-10 px-4">
+      {/* Helmet */}
+      <title>Booked Place - World Travel</title>
       <div className="container mx-auto">
         {/* 🔹 Header Section */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-4">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
             My Booked Places
           </h2>
@@ -60,7 +62,7 @@ const BookPlaces = () => {
         </div>
 
         {/* 🔹 Sort Dropdown */}
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center mb-3">
           <h2 className="text-lg font-semibold text-secondary">
             {bookPlace.length} Tour{bookPlace.length !== 1 && "s"} Found
           </h2>
@@ -85,18 +87,15 @@ const BookPlaces = () => {
 
         {/* 🔹 Booked Places List */}
         {bookPlace.length === 0 ? (
-          <div className="text-center py-20">
+          <div className="text-center ">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4076/4076509.png"
               alt="Not found"
-              className="w-56 mx-auto mb-6 opacity-80"
+              className="w-56 mx-auto opacity-80"
             />
             <h3 className="text-2xl font-semibold mb-2 text-base-content">
               Oops! No Booked Place Found
             </h3>
-            <p className="text-base-content/70 mb-6">
-              You haven’t booked any travel destination yet.
-            </p>
             <button
               onClick={() => navigate("/")}
               className="btn btn-primary text-white hover:bg-secondary hover:text-neutral"

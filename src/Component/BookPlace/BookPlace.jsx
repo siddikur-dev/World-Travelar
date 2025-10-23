@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const BookPlace = () => {
   const [formData, setFormData] = useState({
@@ -16,8 +17,7 @@ const BookPlace = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Booking Info:", formData);
-    alert("✅ Your booking request has been submitted successfully!");
+    toast.success(" Your booking request has been submitted successfully!");
   };
 
   return (

@@ -4,11 +4,13 @@ import { Link, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { VscEyeClosed } from "react-icons/vsc";
 import { FaRegEye } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const { signInWithMailPass, resetPassword } = useContext(AuthContext);
+  const { signInWithMailPass, resetPassword, signInGoogle } =
+    useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const emailRef = useRef();
@@ -29,7 +31,6 @@ const Login = () => {
     signInWithMailPass(email, password)
       .then((userCredential) => {
         const loggedUser = userCredential.user;
-        console.log("Login successful:", loggedUser);
         // optional: you can redirect or update UI here
         toast.success("Login successful");
         navigate(location.state || "/");
@@ -59,8 +60,23 @@ const Login = () => {
       });
   };
 
+  // Sign In Google
+  const signWithGoogle = () => {
+    signInGoogle()
+      .then((result) => {
+        toast.success("User sign in successfully");
+        navigate(location.state || '/');
+      })
+      .catch((error) => {
+        toast.error("Failed To Google Sign");
+        console.log("Sign in google", error);
+      });
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-base-200 py-12 px-4">
+      {/* Helmet */}
+      <title>Login - World Travel</title>
       <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-md p-8">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-center text-primary mb-6">
@@ -127,6 +143,17 @@ const Login = () => {
           </button>
         </form>
 
+        {/* Google Sign-in */}
+
+        <div className="divider text-base-content/60">OR</div>
+        <button
+          className="btn btn-outline w-full flex items-center justify-center gap-2 hover:border-primary hover:text-primary"
+          onClick={signWithGoogle}
+        >
+          <FcGoogle size={22} />
+          <span className="font-medium">Sign in with Google</span>
+        </button>
+        {/* Bottom Link */}
         <p className="text-center text-sm mt-6 text-base-content/70">
           Don’t have an account?{" "}
           <a

@@ -1,5 +1,6 @@
 import React from "react";
 import TravelPlaces from "../../Component/TravelPlaces/TravelPlaces";
+import { Link } from "react-router";
 
 const Home = () => {
   return (
@@ -30,9 +31,12 @@ const Home = () => {
             <button className="btn btn-primary text-white text-lg px-8 hover:bg-secondary hover:text-neutral transition-all duration-300">
               Start Exploring
             </button>
-            <button className="btn btn-secondary text-neutral text-lg px-8 hover:bg-primary hover:text-white transition-all duration-300">
-              View Packages
-            </button>
+            <Link
+              to="/book-places"
+              className="btn btn-secondary text-neutral text-lg px-8 hover:bg-primary hover:text-white transition-all duration-300"
+            >
+              Book Places
+            </Link>
           </div>
         </div>
       </section>

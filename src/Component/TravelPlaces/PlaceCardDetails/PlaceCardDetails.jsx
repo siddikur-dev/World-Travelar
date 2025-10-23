@@ -31,6 +31,8 @@ const PlaceCardDetails = () => {
   const destination = places.find((placeId) => placeId.id === idNb);
   return (
     <section className="bg-base-100 py-16 px-4">
+      {/* Helmet */}
+      <title>Details Place - World Travel</title>
       <div className="container mx-auto flex flex-col lg:flex-row gap-8">
         {/* Image */}
         <div className="lg:w-1/2">

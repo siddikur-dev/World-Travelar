@@ -42,26 +42,27 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/book-places",
+        element: (
+          <PrivateRoute>
+            <BookPlaces />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/register",
         Component: Register,
       },
-      {
-        path: "/private",
-        Component: PrivateRoute,
-      },
+
       {
         path: "/login",
         Component: Login,
       },
-      {
-        path: "/book-places",
-        Component: BookPlaces,
-      },
-      {
-        path: "*",
-        Component: ErrorPage,
-      },
     ],
+  },
+  {
+    path: "*",
+    Component: ErrorPage,
   },
 ]);
 
