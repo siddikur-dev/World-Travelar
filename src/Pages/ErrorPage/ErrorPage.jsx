@@ -10,7 +10,7 @@ const ErrorPage = () => {
       <div className="text-center space-y-6">
         {/* Illustration */}
         <img
-          src="http://sarwatech.com/_next/static/media/404.200e7745.png"
+          src="https://i.postimg.cc/wv8MFYmq/404-200e7745.png"
           alt="404 Illustration"
           className="w-72 mx-auto drop-shadow-lg"
         />

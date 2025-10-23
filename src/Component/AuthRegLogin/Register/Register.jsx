@@ -55,7 +55,7 @@ const Register = () => {
   const signWithGoogle = () => {
     signInGoogle()
       .then((result) => {
-        console.log(result);
+        const user=result.user
         toast.success("User sign in successfully");
         navigate(location.state || "/");
       })
